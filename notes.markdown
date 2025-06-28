@@ -53,3 +53,17 @@ Executing: /usr/lib/systemd/systemd-sysv-install enable gpsd
 Created symlink /etc/systemd/system/multi-user.target.wants/gpsd.service → /usr/lib/systemd/system/gpsd.service.
 root@dragon1:~# 
 ```
+
+# First run of gnu radio companion
+
+```
+mpayne@dragon1:~/git/SDR-TDOA-DF$ gnuradio-companion 
+tempest_message_to_var.block.yml         block.parameters[0]: warn: Ignoring extra key 'optional'
+<<< Welcome to GNU Radio Companion 3.10.11.0 >>>
+
+Block paths:
+        /home/mpayne/.local/state/gnuradio
+        /usr/local/share/gnuradio/grc/blocks
+mpayne@dragon1:~/git/SDR-TDOA-DF$ 
+```
+
