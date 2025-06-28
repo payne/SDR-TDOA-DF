@@ -135,3 +135,25 @@ root@dragon1:~#
 ![cgps -s seems to report a GPS lock](i/screen1.jpg)
 
 
+## With RTL-SDR closer to the window
+
+```
+mpayne@dragon1:~/git/SDR-TDOA-DF$ rtl_sdr -f 162400000,174309000 -s 2048000 output.bin
+Found 1 device(s):
+  0:  RTLSDRBlog, Blog V4, SN: 00000001
+
+Using device 0: Generic RTL2832U OEM
+Found Rafael Micro R828D tuner
+Sampling at 2048000 S/s.
+[R82XX] PLL not locked!
+Tuned to 162400000 Hz.
+Tuner gain set to automatic.
+Reading samples in async mode...
+[R82XX] PLL not locked!
+Tuned to 100000000 Hz.
+[R82XX] PLL not locked!
+Tuned to 162400000 Hz.
+
+User cancel, exiting...
+```
+
