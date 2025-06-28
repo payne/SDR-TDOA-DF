@@ -105,3 +105,17 @@ After unplugging the GPS `dmesg` says:
 [ 6679.609786] usb 1-4: USB disconnect, device number 8
 ```
 
+
+Put different GPS in (this one has longer cord):
+
+```
+[ 6679.609786] usb 1-4: USB disconnect, device number 8
+[ 6754.233488] usb 1-4: new full-speed USB device number 9 using xhci_hcd
+[ 6754.362468] usb 1-4: New USB device found, idVendor=1546, idProduct=01a7, bcdDevice= 1.00
+[ 6754.362490] usb 1-4: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[ 6754.362497] usb 1-4: Product: u-blox 7 - GPS/GNSS Receiver
+[ 6754.362503] usb 1-4: Manufacturer: u-blox AG - www.u-blox.com
+[ 6754.366539] cdc_acm 1-4:1.0: ttyACM0: USB ACM device
+root@dragon1:~# 
+```
+
