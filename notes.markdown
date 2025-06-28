@@ -67,3 +67,35 @@ Block paths:
 mpayne@dragon1:~/git/SDR-TDOA-DF$ 
 ```
 
+First time running Option 2 rtl_sdr
+
+mpayne@dragon1:~/git/SDR-TDOA-DF$ rtl_sdr -f 162400000,174309000 -s 2048000 output.bin
+Found 1 device(s):
+  0:  RTLSDRBlog, Blog V4, SN: 00000001
+
+Using device 0: Generic RTL2832U OEM
+Found Rafael Micro R828D tuner
+RTL-SDR Blog V4 Detected
+Sampling at 2048000 S/s.
+Tuned to 162400000 Hz.
+Tuner gain set to automatic.
+Reading samples in async mode...
+Allocating 15 zero-copy buffers
+rtlsdr_demod_write_reg failed with -6
+rtlsdr_demod_read_reg failed with -6
+r82xx_write: i2c wr failed=-6 reg=17 len=1
+r82xx_set_freq: failed=-6
+rtlsdr_demod_write_reg failed with -6
+rtlsdr_demod_read_reg failed with -6
+WARNING: Failed to set center freq.
+rtlsdr_demod_write_reg failed with -6
+rtlsdr_demod_read_reg failed with -6
+r82xx_write: i2c wr failed=-6 reg=17 len=1
+r82xx_set_freq: failed=-6
+rtlsdr_demod_write_reg failed with -6
+rtlsdr_demod_read_reg failed with -6
+WARNING: Failed to set center freq.
+
+User cancel, exiting...
+mpayne@dragon1:~/git/SDR-TDOA-DF$ 
+
