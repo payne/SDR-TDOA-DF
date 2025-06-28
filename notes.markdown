@@ -157,3 +157,20 @@ Tuned to 162400000 Hz.
 User cancel, exiting...
 ```
 
+## First guess at a flowgraph in gnuradio companion
+
+This created a large `.bin` file:
+```
+-rw-rw-r-- 1 mpayne mpayne 2.0G Jun 28 14:26 noaa_station1.bin
+```
+
+And it created a python file!  So cool.
+
+```
+-rw-rw-r-- 1 mpayne mpayne 8388 Jun 28 14:25 n3pay_tdoa_capture.grc
+-rwxrwxr-- 1 mpayne mpayne 4433 Jun 28 14:24 n3pay_tdoa_capture.py
+```
+
+![gnuradio companion listening to 162.4 MHZ](i/screen2.jpg)
+
+
