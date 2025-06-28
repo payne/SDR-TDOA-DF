@@ -99,3 +99,9 @@ WARNING: Failed to set center freq.
 User cancel, exiting...
 mpayne@dragon1:~/git/SDR-TDOA-DF$ 
 
+
+After unplugging the GPS `dmesg` says:
+```
+[ 6679.609786] usb 1-4: USB disconnect, device number 8
+```
+
