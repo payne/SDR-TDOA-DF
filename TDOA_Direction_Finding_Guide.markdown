@@ -62,7 +62,8 @@ This guide outlines the steps to implement Time Difference of Arrival (TDOA) dir
      ```bash
      rtl_sdr -h
      ```
-     Ensure the `librtlsdr-2freq` branch (`async-rearrangements`) is used to avoid sample loss during frequency switching.[](https://panoradio-sdr.de/tdoa-transmitter-localization-with-rtl-sdrs/)
+     [Ensure the `librtlsdr-2freq` fork (`async-rearrangements`) is used to avoid sample loss during frequency switching.](https://panoradio-sdr.de/tdoa-transmitter-localization-with-rtl-sdrs/)
+       - Discuss(N3PAY): `git checkout librtlsdr-2freq`  # showed no such branch in DC9ST's copy of the repo.
 
 3. **Install GPSD (if using GPS synchronization)**:
    - Install and configure GPSD for precise timing:
