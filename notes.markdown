@@ -41,3 +41,15 @@ dmesg after plugging in the GPS
 [ 5216.827910] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
 ```
 
+
+# Start up gpsd
+
+```
+root@dragon1:~# vi /etc/default/gpsd 
+root@dragon1:~# systemctl start gpsd
+root@dragon1:~# systemctl enable gpsd
+Synchronizing state of gpsd.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable gpsd
+Created symlink /etc/systemd/system/multi-user.target.wants/gpsd.service → /usr/lib/systemd/system/gpsd.service.
+root@dragon1:~# 
+```
