@@ -1,3 +1,6 @@
+# N3PAY's notes when following the instructions
+
+## `dmesg` after plugging in the RTL-SDR
 
 ```
 [ 2524.903762] usb 1-2: new high-speed USB device number 7 using xhci_hcd
@@ -9,8 +12,10 @@
 root@dragon1:~# 
 ```
 
-My output from `rtl_test`
+## My output from `rtl_test`
 
+
+```
 Found 1 device(s):
   0:  RTLSDRBlog, Blog V4, SN: 00000001
 
@@ -26,9 +31,12 @@ samples get lost. If you observe no further output, everything is fine.
 Reading samples in async mode...
 Allocating 15 zero-copy buffers
 lost at least 220 bytes
+```
+
+I controlled-C (CTRL-C) to get out of `rtl_test`
 
 
-dmesg after plugging in the GPS
+## dmesg after plugging in the GPS
 
 ```
 [ 5216.657768] usb 1-4: new full-speed USB device number 8 using xhci_hcd
@@ -42,7 +50,7 @@ dmesg after plugging in the GPS
 ```
 
 
-# Start up gpsd
+## Start up gpsd
 
 ```
 root@dragon1:~# vi /etc/default/gpsd 
@@ -54,7 +62,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/gpsd.service → /us
 root@dragon1:~# 
 ```
 
-# First run of gnu radio companion
+## First run of gnu radio companion
 
 ```
 mpayne@dragon1:~/git/SDR-TDOA-DF$ gnuradio-companion 
@@ -67,8 +75,9 @@ Block paths:
 mpayne@dragon1:~/git/SDR-TDOA-DF$ 
 ```
 
-First time running Option 2 rtl_sdr
+## First time running Option 2 `rtl_sdr`
 
+```
 mpayne@dragon1:~/git/SDR-TDOA-DF$ rtl_sdr -f 162400000,174309000 -s 2048000 output.bin
 Found 1 device(s):
   0:  RTLSDRBlog, Blog V4, SN: 00000001
@@ -98,15 +107,17 @@ WARNING: Failed to set center freq.
 
 User cancel, exiting...
 mpayne@dragon1:~/git/SDR-TDOA-DF$ 
+```
 
 
-After unplugging the GPS `dmesg` says:
+## After unplugging the GPS `dmesg` says:
+
 ```
 [ 6679.609786] usb 1-4: USB disconnect, device number 8
 ```
 
 
-Put different GPS in (this one has longer cord):
+## Put different GPS in (this one has longer cord):
 
 ```
 [ 6679.609786] usb 1-4: USB disconnect, device number 8
@@ -118,4 +129,9 @@ Put different GPS in (this one has longer cord):
 [ 6754.366539] cdc_acm 1-4:1.0: ttyACM0: USB ACM device
 root@dragon1:~# 
 ```
+
+## `cgps -s` looking like I have GPS lock
+
+![cgps -s seems to report a GPS lock](i/screen1.jpg)
+
 
