@@ -27,3 +27,17 @@ Reading samples in async mode...
 Allocating 15 zero-copy buffers
 lost at least 220 bytes
 
+
+dmesg after plugging in the GPS
+
+```
+[ 5216.657768] usb 1-4: new full-speed USB device number 8 using xhci_hcd
+[ 5216.784815] usb 1-4: New USB device found, idVendor=1546, idProduct=01a7, bcdDevice= 1.00
+[ 5216.784837] usb 1-4: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[ 5216.784844] usb 1-4: Product: u-blox 7 - GPS/GNSS Receiver
+[ 5216.784849] usb 1-4: Manufacturer: u-blox AG - www.u-blox.com
+[ 5216.827866] cdc_acm 1-4:1.0: ttyACM0: USB ACM device
+[ 5216.827907] usbcore: registered new interface driver cdc_acm
+[ 5216.827910] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+```
+
