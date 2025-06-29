@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import pdb
 import numpy as np
 from scipy import signal
 from scipy.optimize import minimize
@@ -16,10 +17,11 @@ class TDOAProcessor:
             'station2': np.array([41.18669, -95.96059]),  # Bellevue - kx0u
             'station3': np.array([41.326720, -96.134780])   #   - KF0PGK
             }
+        sample_rate = 1.024e6
         self.station_data = {
-            'station1': 'n3pay',
-            'station2': 'kx0u',
-            'station3': 'kf0pgk'
+           'station1': { 'samples': 42, 'timestamp': 1751236060, 'sample_rate': sample_rate },
+           'station2': { 'samples': 42, 'timestamp': 1751236060, 'sample_rate': 60e6 }, 
+           'station3': { 'samples': 42, 'timestamp': 1751236060, 'sample_rate': 60e6 }, 
          }
 
         
@@ -61,6 +63,8 @@ class TDOAProcessor:
                     print(f"  {station}: {data['filename']}")
                 return True
                 
+        print("YOLO! Make an image anyway.")
+        return True
         print("Warning: No complete set of synchronized samples found")
         # Use the most recent timestamp even if incomplete
         latest_timestamp = max(timestamp_groups.keys())
@@ -70,6 +74,7 @@ class TDOAProcessor:
     def correlate_signals(self, sig1, sig2, sample_rate):
         """Cross-correlate two signals to find time delay"""
         # Limit correlation length for efficiency
+        debugger
         max_correlation_samples = min(len(sig1), len(sig2), int(0.1 * sample_rate))
         sig1 = sig1[:max_correlation_samples]
         sig2 = sig2[:max_correlation_samples]
@@ -105,6 +110,7 @@ class TDOAProcessor:
                 data1 = self.station_data[station1]
                 data2 = self.station_data[station2]
                 
+                breakpoint()
                 # Check sample rates match
                 if data1['sample_rate'] != data2['sample_rate']:
                     print(f"Warning: Sample rates don't match for {station1} and {station2}")
