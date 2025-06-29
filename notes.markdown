@@ -173,4 +173,29 @@ And it created a python file!  So cool.
 
 ![gnuradio companion listening to 162.4 MHZ](i/screen2.jpg)
 
+## `rtl_sdr` to capture both frequencies
 
+```
+mpayne@dragon1:~/git/SDR-TDOA-DF$ rtl_sdr -f 162400000,174309000 -s 2048000 both_freq_output.bin
+Found 1 device(s):
+  0:  RTLSDRBlog, Blog V4, SN: 00000001
+
+Using device 0: Generic RTL2832U OEM
+Found Rafael Micro R828D tuner
+Sampling at 2048000 S/s.
+[R82XX] PLL not locked!
+Tuned to 162400000 Hz.
+Tuner gain set to automatic.
+Reading samples in async mode...
+[R82XX] PLL not locked!
+Tuned to 100000000 Hz.
+[R82XX] PLL not locked!
+Tuned to 162400000 Hz.
+
+User cancel, exiting...
+mpayne@dragon1:~/git/SDR-TDOA-DF$ echo $?
+0
+mpayne@dragon1:~/git/SDR-TDOA-DF$ ls -lht bo*bin
+-rw-rw-r-- 1 mpayne mpayne 12M Jun 28 19:49 both_freq_output.bin
+mpayne@dragon1:~/git/SDR-TDOA-DF$ 
+```
