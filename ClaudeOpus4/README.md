@@ -44,3 +44,12 @@ total 11168
 -rw-rw-r-- 1 mpayne mpayne      460 Jun 29 12:42 requirements.txt
 -rw-rw-r-- 1 mpayne mpayne 11423255 Jun 29 12:03 tdoa_station1_1751216619.npz
 ```
+
+## May the `at` be with you
+
+To run at the same time this might help.
+
+1. One time setup: `sudo apt install at`
+2. `echo /home/mpayne/git/SDR-TDOA-DF/ClaudeOpus4/sync_collect_samples.py  | at 18:56`
+3. `echo $(pwd)/sync_collect_samples.py  | at 18:56`  # more portable syntax
+
