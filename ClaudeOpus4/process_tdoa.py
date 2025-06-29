@@ -91,13 +91,14 @@ if __name__ == "__main__":
     # Define station positions (latitude, longitude)
     # These are example positions - use actual GPS coordinates
     station_positions = {
-        'station1': np.array([41.2565, -96.1969]),  # West Omaha
-        'station2': np.array([41.1543, -95.9145]),  # Bellevue
-        'station3': np.array([41.3148, -95.9378])   # North Omaha
+        'station1': np.array([41.24668, -96.08368]),  # West Omaha - n3pay
+        'station2': np.array([41.18669, -95.96059]),  # Bellevue - kx0u
+        'station3': np.array([41.326720, -96.134780])   #   - KF0PGK
     }
     
     # Load data from each station
     # In practice, you would load the actual collected files
     print("TDOA Processing Example")
+    processor.load_samples('station1')
     print("Configure with actual station positions and data files")
 
