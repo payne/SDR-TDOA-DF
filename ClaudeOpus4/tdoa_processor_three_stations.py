@@ -4,6 +4,7 @@ TDOA Processor for Three Station Data Collection
 Processes synchronized data files from three RTL-SDR stations to locate NOAA transmitter
 """
 
+import pdb
 import numpy as np
 from scipy import signal
 from scipy.optimize import minimize
@@ -69,6 +70,7 @@ class ThreeStationTDOA:
         for filepath in npz_files:
             try:
                 data = np.load(filepath)
+                breakpoint()
                 timestamp = float(data['timestamp'])
                 station_id = str(data['station_id'])
                 
