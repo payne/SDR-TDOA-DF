@@ -10,7 +10,32 @@ Includes the script `collect_samples.py`.  Here's how I ran it on my dragonOS in
 3. `pip install -r requirements.txt`
 4. `python collect_samples.py`
 
+## Example output
 
+```
+(venv) mpayne@dragon1:~/git/SDR-TDOA-DF/ClaudeOpus4$ python collect_samples.py 
+/home/mpayne/git/SDR-TDOA-DF/ClaudeOpus4/venv/lib/python3.12/site-packages/rtlsdr/__init__.py:19: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Found Rafael Micro R828D tuner
+RTL-SDR Blog V4 Detected
+Collecting samples at station station1...
+Saved to tdoa_station1_1751219334.npz
+(venv) mpayne@dragon1:~/git/SDR-TDOA-DF/ClaudeOpus4$ echo $?
+0
+(venv) mpayne@dragon1:~/git/SDR-TDOA-DF/ClaudeOpus4$ ls -lth
+total 22M
+-rw-rw-r-- 1 mpayne mpayne  11M Jun 29 12:48 tdoa_station1_1751219334.npz
+drwxrwxr-x 6 mpayne mpayne 4.0K Jun 29 12:47 venv
+-rw-rw-r-- 1 mpayne mpayne  989 Jun 29 12:46 README.md
+-rw-rw-r-- 1 mpayne mpayne  460 Jun 29 12:42 requirements.txt
+-rw-rw-r-- 1 mpayne mpayne 3.8K Jun 29 12:08 process_tdoa.py
+-rw-rw-r-- 1 mpayne mpayne  11M Jun 29 12:03 tdoa_station1_1751216619.npz
+-rw-rw-r-- 1 mpayne mpayne 1.8K Jun 29 11:55 collect_samples.py
+(venv) mpayne@dragon1:~/git/SDR-TDOA-DF/ClaudeOpus4$ 
+```
+
+
+### files after first run
 ```
 total 11168
 -rw-rw-r-- 1 mpayne mpayne     1836 Jun 29 11:55 collect_samples.py
