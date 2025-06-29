@@ -1,6 +1,6 @@
 # Data collection powered by Vibe coding 
 
-Claude.ai [answers](https://claude.ai/chat/95272d44-fe82-42d9-b211-f742d8231157) to the prompt: 
+Claude.ai [answers](https://claude.ai/share/e9b6884b-1b7e-4dcb-9325-e056f46d50c6) to the prompt: 
   Provide a start-to-finish guide for implementing Time Difference of Arrival (TDOA) direction finding on DragonOS Noble, targeting a NOAA Weather Radio signal at 162.400 MHz (WXL68 in Omaha, Nebraska) using two or three local RTL-SDR stations in the same metropolitan area.
 
 Includes the script `collect_samples.py`.  Here's how I ran it on my dragonOS instance:
