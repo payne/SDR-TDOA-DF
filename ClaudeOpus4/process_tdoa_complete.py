@@ -12,11 +12,16 @@ class TDOAProcessor:
     def __init__(self):
         self.c = 299792458  # Speed of light in m/s
         self.station_positions = {
-            'station1': np.array([41.2565, -96.1969]),  # West Omaha
-            'station2': np.array([41.1543, -95.9145]),  # Bellevue
-            'station3': np.array([41.3148, -95.9378])   # North Omaha
-        }
-        self.station_data = {}
+            'station1': np.array([41.24668, -96.08368]),  # West Omaha - n3pay
+            'station2': np.array([41.18669, -95.96059]),  # Bellevue - kx0u
+            'station3': np.array([41.326720, -96.134780])   #   - KF0PGK
+            }
+        self.station_data = {
+            'station1': 'n3pay',
+            'station2': 'kx0u',
+            'station3': 'kf0pgk'
+         }
+
         
     def load_all_samples(self, directory='.'):
         """Load all .npz files from directory"""
@@ -303,6 +308,7 @@ class TDOAProcessor:
         
         plt.tight_layout()
         plt.savefig('tdoa_results_plot.png', dpi=150)
+        
         print("Saved static plot to tdoa_results_plot.png")
     
     def run_analysis(self, data_directory='.'):
@@ -315,7 +321,7 @@ class TDOAProcessor:
         print("\n1. Loading sample files...")
         complete_set = self.load_all_samples(data_directory)
         
-        if len(self.station_data) < 2:
+        if len(self.station_data.keys()) < 2:
             print("Error: Need at least 2 stations for TDOA")
             return
         
