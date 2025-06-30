@@ -20,6 +20,24 @@ The timezone is set to America/Chicago aka US/Central.
 `docker build . -f Dockerfile.dev`
 `docker build . -f Dockerfile.release`
 
+### Tagging Docker images
+`docker tag <sha256sum> repository/name:tag`
+
+like
+
+```
+docker tag 22838aa37b98d57492d1cf61da1a101a236c5d275af1d4ded601c72e774e0540 edgan/sdr-tdoa-df:dev-0.1
+docker tag 141c1c62280d6e6b3e00444e3990b51239995a439c9134337cb42ae93ea9d41a edgan/sdr-tdoa-df:release-0.1
+```
+
+Where `<sha256sum>`, `tag` change each time you create a new Docker image
+
+### Pushing Docker images
+```
+docker push edgan/sdr-tdoa-df:dev-0.1
+edgan/sdr-tdoa-df:release-0.1
+```
+
 ### Running the Docker images
 #### Commands
 ##### dev
