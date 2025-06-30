@@ -1,0 +1,7 @@
+FROM edgan/sdr-tdoa-df:dev-0.1 
+ENV TZ=America/Chicago
+
+WORKDIR /SDR-TDOA-DF
+COPY collect_samples.py  nice_data  process_tdoa_complete.py  process_tdoa.py  README.md  requirements.txt  sync_collect_samples.py  tdoa_processor_three_stations.py  toc_nice_data.txt ./
+
+RUN pip install -r requirements.txt
