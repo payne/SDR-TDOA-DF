@@ -1,0 +1,61 @@
+{
+  "timestamp": "2025-06-29T21:38:24.909566",
+  "station_positions": {
+    "station1": {
+      "name": "West Omaha",
+      "lat": 41.2565,
+      "lon": -96.1969,
+      "color": "blue"
+    },
+    "station2": {
+      "name": "Bellevue",
+      "lat": 41.1543,
+      "lon": -95.9145,
+      "color": "red"
+    },
+    "station3": {
+      "name": "North Omaha",
+      "lat": 41.3148,
+      "lon": -95.9378,
+      "color": "green"
+    }
+  },
+  "actual_transmitter": {
+    "name": "WXL68 NOAA",
+    "lat": 41.2619,
+    "lon": -96.0819,
+    "freq": "162.400 MHz"
+  },
+  "estimated_position": {
+    "lat": 41.24186666666667,
+    "lon": -96.0164,
+    "optimization_error": 0.27781966080245635,
+    "success": true,
+    "error_meters": 5918.894174037628
+  },
+  "tdoa_measurements": {
+    "station2-station3": {
+      "tdoa_seconds": -0.192835241317749,
+      "tdoa_microseconds": -192835.24131774902,
+      "distance_difference_meters": -57810550.983671136,
+      "correlation_quality": 1565.2411009939522
+    },
+    "station2-station1": {
+      "tdoa_seconds": 0.2202479019165039,
+      "tdoa_microseconds": 220247.9019165039,
+      "distance_difference_meters": 66028659.884891614,
+      "correlation_quality": 1241.7231149943707
+    },
+    "station3-station1": {
+      "tdoa_seconds": 0.43829749870300294,
+      "tdoa_microseconds": 438297.49870300293,
+      "distance_difference_meters": 131398284.47142506,
+      "correlation_quality": 10892.19666502884
+    }
+  },
+  "files_processed": {
+    "station2": "tdoa_station2.npz",
+    "station3": "tdoa_station3.npz",
+    "station1": "tdoa_station1.npz"
+  }
+}
