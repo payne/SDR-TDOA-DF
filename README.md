@@ -2,6 +2,11 @@
 
 Experiments in learning about TDoA (Time Difference of Arrival) radio direction finding.
 
+## First results are less than 4 miles off!
+
+1. https://payne.github.io/SDR-TDOA-DF/ClaudeOpus4/nice_data/tdoa_interactive_map.html
+2. https://github.com/payne/SDR-TDOA-DF/blob/main/ClaudeOpus4/nice_data/correlation_analysis.png
+3. https://github.com/payne/SDR-TDOA-DF/blob/main/ClaudeOpus4/nice_data/tdoa_analysis_results.png
 
 
 ## Links
