@@ -15,6 +15,13 @@ import glob
 import os
 from datetime import datetime
 import json
+import re
+
+def get_station_id_from(filepath):
+    match = re.search(r'tdoa_station(\d+)', filepath)
+    if match:
+        station_num = int(match.group(1))
+        return f"station{station_num}"
 
 class ThreeStationTDOA:
     def __init__(self, data_directory='nice_data'):
@@ -54,12 +61,15 @@ class ThreeStationTDOA:
         
         self.data_files = {}
         self.tdoa_results = {}
+
         
     def find_synchronized_files(self):
         """Find and group synchronized data files"""
         print(f"\nSearching for data files in '{self.data_dir}'...")
         
         npz_files = glob.glob(os.path.join(self.data_dir, 'tdoa_*.npz'))
+
+        # breakpoint()
         
         if not npz_files:
             raise ValueError(f"No .npz files found in {self.data_dir}")
@@ -70,9 +80,10 @@ class ThreeStationTDOA:
         for filepath in npz_files:
             try:
                 data = np.load(filepath)
-                breakpoint()
+                # breakpoint()
                 timestamp = float(data['timestamp'])
                 station_id = str(data['station_id'])
+                station_id = get_station_id_from(filepath)
                 
                 # Round to nearest second for grouping
                 time_key = round(timestamp)
@@ -80,6 +91,7 @@ class ThreeStationTDOA:
                 if time_key not in file_groups:
                     file_groups[time_key] = {}
                 
+                print(f"{filepath} time_key={time_key} station_id={station_id}")
                 file_groups[time_key][station_id] = filepath
                 
             except Exception as e:
