@@ -1,0 +1,5 @@
+  246  ls not_nice_data/
+  247  ln 2013/ajg.npz nice_data/tdoa_station1.npz 
+  248  ln 2013/n3pay.npz nice_data/tdoa_station2.npz 
+  249  ln 2013/jim/tdoa_station1_1751245981.npz nice_data/tdoa_station3.npz 
+  250  history | tail -5 | tee toc_nice_data.txt
