@@ -132,7 +132,7 @@ root@dragon1:~#
 
 ## `cgps -s` looking like I have GPS lock
 
-![cgps -s seems to report a GPS lock](i/screen1.jpg)
+![cgps -s seems to report a GPS lock](.assets/screen1.jpg)
 
 
 ## With RTL-SDR closer to the window
@@ -171,7 +171,7 @@ And it created a python file!  So cool.
 -rwxrwxr-- 1 mpayne mpayne 4433 Jun 28 14:24 n3pay_tdoa_capture.py
 ```
 
-![gnuradio companion listening to 162.4 MHZ](i/screen2.jpg)
+![gnuradio companion listening to 162.4 MHZ](.assets/screen2.jpg)
 
 ## `rtl_sdr` to capture both frequencies
 
