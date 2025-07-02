@@ -8,8 +8,10 @@ from datetime import datetime
 from scipy import signal
 import threading
 
+SYNC_FREQ=506.31e6
+
 class TDOACollector:
-    def __init__(self, station_id, center_freq=162.4e6, sample_rate=2.048e6, ref_freq=174.309e6):
+    def __init__(self, station_id, center_freq=162.4e6, sample_rate=2.048e6, ref_freq=SYNC_FREQ):
         self.station_id = station_id
         self.center_freq = center_freq
         self.sample_rate = sample_rate
@@ -191,7 +193,7 @@ def main():
     
     # Initialize collector with reference frequency
     # 174.309 MHz could be a local FM station or other stable signal
-    collector = TDOACollector(station_id, ref_freq=174.309e6)
+    collector = TDOACollector(station_id, ref_freq=SYNC_FREQ)
     
     print(f"Station {station_id} TDOA Collector")
     print(f"Target: 162.400 MHz (NOAA WXL68)")
