@@ -52,3 +52,4 @@ docker push argussdr/sdr-tdoa-df:release-0.3
 `docker run -it --device /dev/bus/usb --mount type=bind,src=./nice_data,dst=/SDR-TDOA-DF/nice_data argussdr/sdr-tdoa-df:release-0.3 ./tdoa_processor_three_stations.py`
 
 1. This command mounts `/dev/bus/usb` for accessing USB devices, like a RTL-SDR.
+2. You need a nice_data directory in whatever directory you can going to run it from.
