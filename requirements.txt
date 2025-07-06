@@ -6,6 +6,7 @@ contourpy==1.3.2
 curtsies==0.4.3
 cwcwidth==0.1.10
 cycler==0.12.1
+folium==0.20.0
 fonttools==4.58.4
 gps==3.19
 greenlet==3.2.3

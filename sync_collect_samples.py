@@ -216,7 +216,7 @@ def main():
     data = collector.collect_samples(duration=2.0)
     
     # Save data
-    filename = f"tdoa_{station_id}_{int(data['timestamp'])}.npz"
+    filename = f"nice_data/tdoa_{station_id}_{int(data['timestamp'])}.npz"
     collector.save_samples(data, filename)
     print(f"Saved to {filename}")
     
