@@ -4,5 +4,5 @@ ENV TZ=America/Chicago
 WORKDIR /SDR-TDOA-DF
 
 COPY requirements.txt ./
-RUN apt-get update && apt-get -y install python3 pip rtl-sdr && rm /usr/lib/python3.12/EXTERNALLY-MANAGED
+RUN apt-get update && apt-get -y install python3 pip python3-soapysdr && dpkg --purge python3-numpy && rm /usr/lib/python3.12/EXTERNALLY-MANAGED
 RUN pip install -r requirements.txt
