@@ -204,17 +204,24 @@ def main():
     print(f"Reference: 174.309 MHz")
     print(f"Execution timestamp: {execution_timestamp}")
 
-    # Try to acquire reference lock
-    if collector.acquire_reference_lock():
-        print("Using reference-based synchronization")
-
-        # Wait for synchronization point
-        print("Waiting for sync point...")
-        collector.synchronize_to_reference()
+    # Use deterministic time-based synchronization
+    print("Using deterministic time-based synchronization")
+    
+    # Wait for next xx:xx:10 (10 seconds after any minute)
+    current_time = time.time()
+    current_second = int(current_time) % 60  # seconds within current minute
+    
+    if current_second < 10:
+        wait_time = 10 - current_second
+        target_second = 10
     else:
-        print("Using time-based synchronization")
-        # Fall back to time sync
-        time.sleep(1.0 - (time.time() % 1.0))
+        wait_time = 70 - current_second  # wait for next minute + 10 seconds
+        target_second = 10
+    
+    print(f"Current time: {current_second}s past minute")
+    print(f"Waiting {wait_time:.1f}s for next xx:xx:10 sync point...")
+    time.sleep(wait_time)
+    print("Synchronized to xx:xx:10!")
 
     # Collect samples with original execution timestamp
     print("Collecting samples...")
