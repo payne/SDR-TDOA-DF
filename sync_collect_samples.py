@@ -98,7 +98,7 @@ class TDOACollector:
 
         time.sleep(wait_time)
 
-    def collect_samples_with_reference(self, duration=1.0):
+    def collect_samples_with_reference(self, duration=1.0, execution_timestamp=None):
         """Collect samples with reference signal for time alignment"""
         # Simultaneously collect from both target and reference frequencies
         # Using frequency hopping approach
@@ -111,7 +111,7 @@ class TDOACollector:
         ref_samples = []
         timestamps = []
 
-        start_time = time.time()
+        start_time = execution_timestamp if execution_timestamp is not None else time.time()
 
         while len(target_samples) < num_samples:
             # Collect target frequency
@@ -149,15 +149,15 @@ class TDOACollector:
             'ref_freq': self.ref_freq
         }
 
-    def collect_samples(self, duration=1.0, use_reference=True):
+    def collect_samples(self, duration=1.0, use_reference=True, execution_timestamp=None):
         """Main collection method"""
         if use_reference and self.ref_lock:
-            return self.collect_samples_with_reference(duration)
+            return self.collect_samples_with_reference(duration, execution_timestamp)
         else:
             # Standard collection without reference
             self.sdr.center_freq = self.center_freq
             num_samples = int(self.sdr.sample_rate * duration)
-            timestamp = time.time()
+            timestamp = execution_timestamp if execution_timestamp is not None else time.time()
             samples = self.sdr.read_samples(num_samples)
 
             return {
@@ -189,6 +189,10 @@ class TDOACollector:
 
 def main():
     import sys
+    
+    # CAPTURE TIMESTAMP IMMEDIATELY AT SCRIPT START
+    execution_timestamp = time.time()
+    
     station_id = sys.argv[1] if len(sys.argv) > 1 else "station1"
 
     # Initialize collector with reference frequency
@@ -198,6 +202,7 @@ def main():
     print(f"Station {station_id} TDOA Collector")
     print(f"Target: 162.400 MHz (NOAA WXL68)")
     print(f"Reference: 174.309 MHz")
+    print(f"Execution timestamp: {execution_timestamp}")
 
     # Try to acquire reference lock
     if collector.acquire_reference_lock():
@@ -211,9 +216,9 @@ def main():
         # Fall back to time sync
         time.sleep(1.0 - (time.time() % 1.0))
 
-    # Collect samples
+    # Collect samples with original execution timestamp
     print("Collecting samples...")
-    data = collector.collect_samples(duration=2.0)
+    data = collector.collect_samples(duration=2.0, execution_timestamp=execution_timestamp)
 
     # Save data
     filename = f"nice_data/tdoa_{station_id}_{int(data['timestamp'])}.npz"
